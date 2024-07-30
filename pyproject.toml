@@ -1,3 +1,65 @@
 
 [tool.ruff]
 line-length = 120
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dep-audit"
+dynamic = ["version"]
+description = ''
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "John Hanley", email = "jhanley708-git@s6.sector6.net" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = []
+
+[project.urls]
+Documentation = "https://github.com/John Hanley/dep-audit#readme"
+Issues = "https://github.com/John Hanley/dep-audit/issues"
+Source = "https://github.com/John Hanley/dep-audit"
+
+[tool.hatch.version]
+path = "src/dep_audit/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/dep_audit tests}"
+
+[tool.coverage.run]
+source_pkgs = ["dep_audit", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/dep_audit/__about__.py",
+]
+
+[tool.coverage.paths]
+dep_audit = ["src/dep_audit", "*/dep-audit/src/dep_audit"]
+tests = ["tests", "*/dep-audit/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
