@@ -1,3 +1,3 @@
-# SPDX-FileCopyrightText: 2024-present John Hanley <jhanley708-git@s6.sector6.net>
+# SPDX-FileCopyrightText: 2024-present John Hanley <jhanley634@users.noreply.github.com>
 #
 # SPDX-License-Identifier: MIT
