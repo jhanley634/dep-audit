@@ -36,6 +36,9 @@ Documentation = "https://github.com/jhanley634/dep-audit#readme"
 Issues = "https://github.com/jhanley634/dep-audit/issues"
 Source = "https://github.com/jhanley634/dep-audit"
 
+[project.scripts]
+dep-audit = "dep_audit.cli:version_audit"
+
 [tool.hatch.version]
 path = "src/dep_audit/__about__.py"
 
